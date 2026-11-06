@@ -7,7 +7,7 @@ import os
 import pytest
 
 from demo_common import host as host_module
-from demo_common import host_approval_default, load_demo_env, spawn_background
+from demo_common import host_approval_default, load_demo_env, provider_config_overrides, spawn_background
 from demo_common.host import _background_tasks
 
 
@@ -72,6 +72,23 @@ def test_sdk_auth_clears_key_variables_and_reads_no_file(env_dirs, monkeypatch):
     load_demo_env(example_root)
 
     assert "ANTHROPIC_API_KEY" not in os.environ
+
+
+def test_deepseek_base_url_pins_flash_and_disables_thinking(monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_BASE_URL", "https://api.deepseek.com/anthropic")
+    monkeypatch.delenv("COMMERCE_MODEL", raising=False)
+    monkeypatch.delenv("COMMERCE_MEMORY_MODEL", raising=False)
+    assert provider_config_overrides() == {
+        "model": "deepseek-flash",
+        "memory_model": "deepseek-flash",
+        "thinking_effort": None,
+        "max_tokens": 4096,
+    }
+
+
+def test_provider_overrides_are_empty_without_a_deepseek_url(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_BASE_URL", raising=False)
+    assert provider_config_overrides() == {}
 
 
 async def test_spawn_background_holds_the_task_until_it_finishes():

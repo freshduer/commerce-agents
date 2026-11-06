@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from demo_common import host_approval_default
+from demo_common import host_approval_default, provider_config_overrides
 from merchant_agent import MerchantAgentConfig
 from shopping_agent import ShoppingAgentConfig
 
@@ -35,6 +35,7 @@ def build_shopping_config() -> ShoppingAgentConfig:
             "every search — results and prices are quotes for those dates, not "
             "catalog constants."
         ),
+        **provider_config_overrides(),
     )
 
 
@@ -49,4 +50,5 @@ def build_merchant_config(store_name: str) -> MerchantAgentConfig:
         price_bearing_fields=_MERCHANT_DEFAULTS.price_bearing_fields + ("nightly_rate",),
         listing_update_blocked_fields=_MERCHANT_DEFAULTS.listing_update_blocked_fields
         + ("nightly_rate",),
+        **provider_config_overrides(),
     )

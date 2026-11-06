@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from demo_common import host_approval_default
+from demo_common import host_approval_default, provider_config_overrides
 from merchant_agent import MerchantAgentConfig
 from shopping_agent import ShoppingAgentConfig
 
@@ -78,6 +78,7 @@ def build_shopping_config() -> ShoppingAgentConfig:
         # Matches the engine's per-event hold cap.
         max_quantity_per_item=8,
         policy_intent_terms=_SHOPPING_DEFAULTS.policy_intent_terms + _POLICY_TERMS,
+        **provider_config_overrides(),
     )
 
 
@@ -88,4 +89,5 @@ def build_merchant_config(store_name: str) -> MerchantAgentConfig:
         approval_surface="the Approve button on the change preview card",
         metrics_intent_terms=_MERCHANT_DEFAULTS.metrics_intent_terms + _METRICS_TERMS,
         protected_fields=_MERCHANT_DEFAULTS.protected_fields + _PROTECTED_FIELDS,
+        **provider_config_overrides(),
     )

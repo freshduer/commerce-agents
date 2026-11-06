@@ -74,6 +74,26 @@ def host_approval_default() -> bool:
     return os.environ.get("MERCHANT_REQUIRE_HOST_APPROVAL", "1") != "0"
 
 
+def provider_config_overrides() -> dict[str, Any]:
+    """Model and thinking knobs when ``ANTHROPIC_BASE_URL`` is a non-Anthropic gateway.
+
+    DeepSeek's Anthropic-compatible API (``https://api.deepseek.com/anthropic``) maps
+    Claude ids, but named ``tool_choice`` returns 400 while thinking is on. Pin
+    ``deepseek-flash`` and disable thinking so the demo's tool loop stays valid.
+    ``COMMERCE_MODEL`` / ``COMMERCE_MEMORY_MODEL`` override the ids.
+    """
+    base = os.environ.get("ANTHROPIC_BASE_URL", "")
+    if "deepseek.com" not in base:
+        return {}
+    model = os.environ.get("COMMERCE_MODEL") or "deepseek-flash"
+    return {
+        "model": model,
+        "memory_model": os.environ.get("COMMERCE_MEMORY_MODEL") or model,
+        "thinking_effort": None,
+        "max_tokens": 4096,
+    }
+
+
 # The event loop holds only weak references to tasks, so fire-and-forget work (memory
 # extraction after a turn) is kept alive here until it completes.
 _background_tasks: set[asyncio.Task[Any]] = set()

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import os
 
-from demo_common import host_approval_default
+from demo_common import host_approval_default, provider_config_overrides
 from merchant_agent import MerchantAgentConfig
 from shopping_agent import ShoppingAgentConfig
 
@@ -18,6 +18,7 @@ def build_shopping_config() -> ShoppingAgentConfig:
         brand_name="ACME",
         assistant_name="ACME Assistant",
         brand_voice="professional, warm, and brief",
+        **provider_config_overrides(),
     )
 
 
@@ -33,4 +34,5 @@ def build_merchant_config(store_name: str) -> MerchantAgentConfig:
         enable_analysis=True,
         analysis_use_code_execution=os.environ.get("MERCHANT_ANALYSIS_CODE_EXECUTION", "0") == "1",
         analysis_model=os.environ.get("MERCHANT_ANALYSIS_MODEL") or None,
+        **provider_config_overrides(),
     )
