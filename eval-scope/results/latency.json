@@ -1,0 +1,960 @@
+{
+  "model": "deepseek-flash",
+  "n_reps": 2,
+  "eager_tool_dispatch": true,
+  "rolling_conversation_cache": true,
+  "close_on_presentation": true,
+  "ranker_acme": {
+    "n": 200,
+    "mean_ms": 33.311405181884766,
+    "p50_ms": 34.207941964268684,
+    "p95_ms": 36.23679727315903
+  },
+  "mean_wall_s": 7.5142500000000005,
+  "mean_llm_share": 0.9512883217548584,
+  "cases": [
+    {
+      "ok": true,
+      "n": 2,
+      "wall_s": 10.838000000000001,
+      "n_llm": 4.0,
+      "ttft_s": 2.9280104180797935,
+      "t_first_search_s": 3.3668990790611133,
+      "t_first_ui_s": 9.550642759073526,
+      "attr": {
+        "prefetch": 0.0008266129298135638,
+        "llm": 10.160637788590975,
+        "overlap": 0.2211806740378961,
+        "tools": 0.0,
+        "other": 0.45535492443013936
+      },
+      "cpu": {
+        "search": 0.21784652746282518,
+        "skill": 0.00029743544291704893,
+        "present": 0.0030367111321538687,
+        "other_tool": 0.0
+      },
+      "tool_cpu_s": 0.2211806740378961,
+      "overlapped_tool_s": 0.2211806740378961,
+      "llm_spans_s": [
+        3.293889282620512,
+        2.1523401563754305,
+        2.206410260638222,
+        3.059460001066327,
+        2.398897524923086
+      ],
+      "round_stack": [
+        {
+          "name": "prefetch",
+          "s": 0.07154007849749178
+        },
+        {
+          "name": "llm0",
+          "s": 3.293889282620512
+        },
+        {
+          "name": "join1",
+          "s": 0.10181715548969805
+        },
+        {
+          "name": "llm1",
+          "s": 2.1523401563754305
+        },
+        {
+          "name": "join2",
+          "s": 0.11587217752821743
+        },
+        {
+          "name": "llm2",
+          "s": 2.206410260638222
+        },
+        {
+          "name": "join3",
+          "s": 0.07675787841435522
+        },
+        {
+          "name": "llm3",
+          "s": 1.5297300005331635
+        },
+        {
+          "name": "join4",
+          "s": 0.08852464705705643
+        },
+        {
+          "name": "llm4",
+          "s": 1.199448762461543
+        },
+        {
+          "name": "tail",
+          "s": 0.001669600373134017
+        }
+      ],
+      "tool_names": [
+        "load_skill",
+        "search_products",
+        "search_products",
+        "present_products",
+        "present_suggestions"
+      ],
+      "usage": {
+        "input_tokens": 1807,
+        "output_tokens": 472,
+        "cache_read_input_tokens": 22016,
+        "cache_creation_input_tokens": 0
+      },
+      "runs": [
+        {
+          "ok": true,
+          "wall_s": 11.266,
+          "n_llm": 5,
+          "tool_names": [
+            "load_skill",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "get_product_details",
+            "search_products",
+            "search_products",
+            "search_products",
+            "present_plan",
+            "present_suggestions",
+            "present_plan",
+            "present_suggestions"
+          ],
+          "ttft_s": 1.0363330191466957,
+          "t_first_search_s": 1.768469975097105,
+          "t_first_ui_s": 8.690664296038449,
+          "attr": {
+            "prefetch": 0.0007748969364911318,
+            "llm": 10.268622998613864,
+            "overlap": 0.35564264142885804,
+            "tools": 0.0,
+            "other": 0.6409594630822539
+          },
+          "cpu": {
+            "search": 0.3512390840332955,
+            "skill": 0.00023448397405445576,
+            "present": 0.004169073421508074,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.35564264142885804,
+          "overlapped_tool_s": 0.35564264142885804,
+          "llm_spans_s": [
+            1.6956347411032766,
+            1.9858754288870841,
+            1.4843979440629482,
+            3.059460001066327,
+            2.398897524923086
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.07126574497669935
+            ],
+            [
+              "llm0",
+              1.6956347411032766
+            ],
+            [
+              "join1",
+              0.10528769600205123
+            ],
+            [
+              "llm1",
+              1.9858754288870841
+            ],
+            [
+              "join2",
+              0.1321497680619359
+            ],
+            [
+              "llm2",
+              1.4843979440629482
+            ],
+            [
+              "join3",
+              0.15351575682871044
+            ],
+            [
+              "llm3",
+              3.059460001066327
+            ],
+            [
+              "join4",
+              0.17704929411411285
+            ],
+            [
+              "llm4",
+              2.398897524923086
+            ],
+            [
+              "tail",
+              0.0024661000352352858
+            ]
+          ],
+          "usage": {
+            "input_tokens": 6670,
+            "output_tokens": 1434,
+            "cache_read_input_tokens": 48000,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 70
+        },
+        {
+          "ok": true,
+          "wall_s": 10.41,
+          "n_llm": 3,
+          "tool_names": [
+            "load_skill",
+            "search_products",
+            "search_products",
+            "present_products",
+            "present_suggestions"
+          ],
+          "ttft_s": 4.819687817012891,
+          "t_first_search_s": 4.965328183025122,
+          "t_first_ui_s": 10.410621222108603,
+          "attr": {
+            "prefetch": 0.0008783289231359959,
+            "llm": 10.052652578568086,
+            "overlap": 0.08671870664693415,
+            "tools": 0.0,
+            "other": 0.2697503857780248
+          },
+          "cpu": {
+            "search": 0.08445397089235485,
+            "skill": 0.0003603869117796421,
+            "present": 0.0019043488427996635,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.08671870664693415,
+          "overlapped_tool_s": 0.08671870664693415,
+          "llm_spans_s": [
+            4.892143824137747,
+            2.318804883863777,
+            2.928422577213496
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.0718144120182842
+            ],
+            [
+              "llm0",
+              4.892143824137747
+            ],
+            [
+              "join1",
+              0.09834661497734487
+            ],
+            [
+              "llm1",
+              2.318804883863777
+            ],
+            [
+              "join2",
+              0.09959458699449897
+            ],
+            [
+              "llm2",
+              2.928422577213496
+            ],
+            [
+              "tail",
+              0.0008731007110327482
+            ]
+          ],
+          "usage": {
+            "input_tokens": 1807,
+            "output_tokens": 472,
+            "cache_read_input_tokens": 22016,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 34
+        }
+      ],
+      "id": "search_tent",
+      "label": "Search: tent"
+    },
+    {
+      "ok": true,
+      "n": 2,
+      "wall_s": 2.9855,
+      "n_llm": 2.0,
+      "ttft_s": 0.8870912130223587,
+      "t_first_search_s": 1.1285419699270278,
+      "t_first_ui_s": 2.985673436895013,
+      "attr": {
+        "prefetch": 0.0008449400775134563,
+        "llm": 2.7850753230741248,
+        "overlap": 0.04804579447954893,
+        "tools": 0.0,
+        "other": 0.15153394232038409
+      },
+      "cpu": {
+        "search": 0.04633894539438188,
+        "skill": 0.0,
+        "present": 0.0017068490851670504,
+        "other_tool": 0.0
+      },
+      "tool_cpu_s": 0.04804579447954893,
+      "overlapped_tool_s": 0.04804579447954893,
+      "llm_spans_s": [
+        1.0572388120926917,
+        1.775882305460982
+      ],
+      "round_stack": [
+        {
+          "name": "prefetch",
+          "s": 0.07012976193800569
+        },
+        {
+          "name": "llm0",
+          "s": 1.0572388120926917
+        },
+        {
+          "name": "join1",
+          "s": 0.08048918342683464
+        },
+        {
+          "name": "llm1",
+          "s": 1.775882305460982
+        },
+        {
+          "name": "tail",
+          "s": 0.0017599370330572128
+        }
+      ],
+      "tool_names": [
+        "search_products",
+        "present_products",
+        "present_suggestions"
+      ],
+      "usage": {
+        "input_tokens": 488,
+        "output_tokens": 257,
+        "cache_read_input_tokens": 13824,
+        "cache_creation_input_tokens": 0
+      },
+      "runs": [
+        {
+          "ok": true,
+          "wall_s": 2.812,
+          "n_llm": 2,
+          "tool_names": [
+            "search_products",
+            "present_products",
+            "present_suggestions"
+          ],
+          "ttft_s": 0.9058213101234287,
+          "t_first_search_s": 0.9572887609247118,
+          "t_first_ui_s": 2.812238404992968,
+          "attr": {
+            "prefetch": 0.0008369821589440107,
+            "llm": 2.615509076276794,
+            "overlap": 0.046522388933226466,
+            "tools": 0.0,
+            "other": 0.14913155254907906
+          },
+          "cpu": {
+            "search": 0.04483185685239732,
+            "skill": 0.0,
+            "present": 0.0016905320808291435,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.046522388933226466,
+          "overlapped_tool_s": 0.046522388933226466,
+          "llm_spans_s": [
+            0.8869201322086155,
+            1.775111333001405
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.06924948492087424
+            ],
+            [
+              "llm0",
+              0.8869201322086155
+            ],
+            [
+              "join1",
+              0.07865857589058578
+            ],
+            [
+              "llm1",
+              1.775111333001405
+            ],
+            [
+              "tail",
+              0.002060473896563053
+            ]
+          ],
+          "usage": {
+            "input_tokens": 476,
+            "output_tokens": 219,
+            "cache_read_input_tokens": 13824,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 11
+        },
+        {
+          "ok": true,
+          "wall_s": 3.159,
+          "n_llm": 2,
+          "tool_names": [
+            "search_products",
+            "present_products",
+            "present_suggestions"
+          ],
+          "ttft_s": 0.8683611159212887,
+          "t_first_search_s": 1.2997951789293438,
+          "t_first_ui_s": 3.159108468797058,
+          "attr": {
+            "prefetch": 0.000852897996082902,
+            "llm": 2.9546415698714554,
+            "overlap": 0.049569200025871396,
+            "tools": 0.0,
+            "other": 0.1539363320916891
+          },
+          "cpu": {
+            "search": 0.04784603393636644,
+            "skill": 0.0,
+            "present": 0.0017231660895049572,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.049569200025871396,
+          "overlapped_tool_s": 0.049569200025871396,
+          "llm_spans_s": [
+            1.2275574919767678,
+            1.776653277920559
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.07101003895513713
+            ],
+            [
+              "llm0",
+              1.2275574919767678
+            ],
+            [
+              "join1",
+              0.0823197909630835
+            ],
+            [
+              "llm1",
+              1.776653277920559
+            ],
+            [
+              "tail",
+              0.0014594001695513725
+            ]
+          ],
+          "usage": {
+            "input_tokens": 488,
+            "output_tokens": 257,
+            "cache_read_input_tokens": 13824,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 26
+        }
+      ],
+      "id": "search_adapter",
+      "label": "Search: adapter"
+    },
+    {
+      "ok": true,
+      "n": 2,
+      "wall_s": 11.725,
+      "n_llm": 4.0,
+      "ttft_s": 1.198462993488647,
+      "t_first_search_s": 2.5985081589315087,
+      "t_first_ui_s": 8.266542128869332,
+      "attr": {
+        "prefetch": 0.0010297555709257722,
+        "llm": 10.805079096578993,
+        "overlap": 0.3686757368268445,
+        "tools": 0.0,
+        "other": 0.5502154109999537
+      },
+      "cpu": {
+        "search": 0.36513728427235037,
+        "skill": 0.00028035591822117567,
+        "present": 0.003258096636272967,
+        "other_tool": 0.0
+      },
+      "tool_cpu_s": 0.3686757368268445,
+      "overlapped_tool_s": 0.3686757368268445,
+      "llm_spans_s": [
+        2.520295286900364,
+        2.4618571575265378,
+        2.9214645070023835,
+        3.2701378819765523
+      ],
+      "round_stack": [
+        {
+          "name": "prefetch",
+          "s": 0.07574071153067052
+        },
+        {
+          "name": "llm0",
+          "s": 2.520295286900364
+        },
+        {
+          "name": "join1",
+          "s": 0.12070041603874415
+        },
+        {
+          "name": "llm1",
+          "s": 2.4618571575265378
+        },
+        {
+          "name": "join2",
+          "s": 0.1644626474007964
+        },
+        {
+          "name": "llm2",
+          "s": 2.9214645070023835
+        },
+        {
+          "name": "join3",
+          "s": 0.18804528506007046
+        },
+        {
+          "name": "llm3",
+          "s": 3.2701378819765523
+        },
+        {
+          "name": "tail",
+          "s": 0.0022961065405979753
+        }
+      ],
+      "tool_names": [
+        "load_skill",
+        "search_products",
+        "search_products",
+        "search_products",
+        "search_products",
+        "search_products",
+        "search_products",
+        "search_products",
+        "search_products",
+        "get_product_details",
+        "get_product_details",
+        "present_plan",
+        "present_suggestions",
+        "present_plan",
+        "present_suggestions"
+      ],
+      "usage": {
+        "input_tokens": 9295,
+        "output_tokens": 1742,
+        "cache_read_input_tokens": 42368,
+        "cache_creation_input_tokens": 0
+      },
+      "runs": [
+        {
+          "ok": true,
+          "wall_s": 10.641,
+          "n_llm": 4,
+          "tool_names": [
+            "load_skill",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "get_product_details",
+            "present_suggestions",
+            "present_plan",
+            "present_suggestions"
+          ],
+          "ttft_s": 1.1806447319686413,
+          "t_first_search_s": 2.614747865824029,
+          "t_first_ui_s": 6.947671515867114,
+          "attr": {
+            "prefetch": 0.0012642189394682646,
+            "llm": 9.727564224973321,
+            "overlap": 0.373847255948931,
+            "tools": 0.0,
+            "other": 0.5383243001997471
+          },
+          "cpu": {
+            "search": 0.37074931780807674,
+            "skill": 0.000298116821795702,
+            "present": 0.0027998213190585375,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.373847255948931,
+          "overlapped_tool_s": 0.373847255948931,
+          "llm_spans_s": [
+            2.5323549897875637,
+            2.4044211141299456,
+            1.644617531914264,
+            3.5200178450904787
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.08027087501250207
+            ],
+            [
+              "llm0",
+              2.5323549897875637
+            ],
+            [
+              "join1",
+              0.12257384206168354
+            ],
+            [
+              "llm1",
+              2.4044211141299456
+            ],
+            [
+              "join2",
+              0.16207092790864408
+            ],
+            [
+              "llm2",
+              1.644617531914264
+            ],
+            [
+              "join3",
+              0.17189592006616294
+            ],
+            [
+              "llm3",
+              3.5200178450904787
+            ],
+            [
+              "tail",
+              0.0027769540902227163
+            ]
+          ],
+          "usage": {
+            "input_tokens": 7239,
+            "output_tokens": 1129,
+            "cache_read_input_tokens": 39552,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 109
+        },
+        {
+          "ok": true,
+          "wall_s": 12.809,
+          "n_llm": 4,
+          "tool_names": [
+            "load_skill",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "search_products",
+            "get_product_details",
+            "get_product_details",
+            "present_plan",
+            "present_suggestions",
+            "present_plan",
+            "present_suggestions"
+          ],
+          "ttft_s": 1.2162812550086528,
+          "t_first_search_s": 2.5822684520389885,
+          "t_first_ui_s": 9.58541274187155,
+          "attr": {
+            "prefetch": 0.0007952922023832798,
+            "llm": 11.882593968184665,
+            "overlap": 0.36350421770475805,
+            "tools": 0.0,
+            "other": 0.5621065218001604
+          },
+          "cpu": {
+            "search": 0.359525250736624,
+            "skill": 0.00026259501464664936,
+            "present": 0.0037163719534873962,
+            "other_tool": 0.0
+          },
+          "tool_cpu_s": 0.36350421770475805,
+          "overlapped_tool_s": 0.36350421770475805,
+          "llm_spans_s": [
+            2.508235584013164,
+            2.51929320092313,
+            4.198311482090503,
+            3.020257918862626
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.07121054804883897
+            ],
+            [
+              "llm0",
+              2.508235584013164
+            ],
+            [
+              "join1",
+              0.11882699001580477
+            ],
+            [
+              "llm1",
+              2.51929320092313
+            ],
+            [
+              "join2",
+              0.16685436689294875
+            ],
+            [
+              "llm2",
+              4.198311482090503
+            ],
+            [
+              "join3",
+              0.20419465005397797
+            ],
+            [
+              "llm3",
+              3.020257918862626
+            ],
+            [
+              "tail",
+              0.0018152589909732342
+            ]
+          ],
+          "usage": {
+            "input_tokens": 9295,
+            "output_tokens": 1742,
+            "cache_read_input_tokens": 42368,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 148
+        }
+      ],
+      "id": "plan_camp",
+      "label": "Plan: camp kit"
+    },
+    {
+      "ok": true,
+      "n": 2,
+      "wall_s": 4.5085,
+      "n_llm": 3.0,
+      "ttft_s": 1.5162196980090812,
+      "t_first_search_s": null,
+      "t_first_ui_s": 4.508586935466155,
+      "attr": {
+        "prefetch": 0.0010261399438604712,
+        "llm": 4.247694412362762,
+        "overlap": 0.014183361548930407,
+        "tools": 0.0,
+        "other": 0.24559608614072204
+      },
+      "cpu": {
+        "search": 0.0,
+        "skill": 0.0,
+        "present": 0.0009813995566219091,
+        "other_tool": 0.013201961992308497
+      },
+      "tool_cpu_s": 0.014183361548930407,
+      "overlapped_tool_s": 0.014183361548930407,
+      "llm_spans_s": [
+        1.454042580910027,
+        1.1667426180792972,
+        1.641092574922368
+      ],
+      "round_stack": [
+        {
+          "name": "prefetch",
+          "s": 0.07254275004379451
+        },
+        {
+          "name": "llm0",
+          "s": 1.454042580910027
+        },
+        {
+          "name": "join1",
+          "s": 0.08164827455766499
+        },
+        {
+          "name": "llm1",
+          "s": 1.1667426180792972
+        },
+        {
+          "name": "join2",
+          "s": 0.09128872293513268
+        },
+        {
+          "name": "llm2",
+          "s": 1.641092574922368
+        },
+        {
+          "name": "tail",
+          "s": 0.0011424785479903221
+        }
+      ],
+      "tool_names": [
+        "search_policies",
+        "get_orders",
+        "present_suggestions"
+      ],
+      "usage": {
+        "input_tokens": 1508,
+        "output_tokens": 289,
+        "cache_read_input_tokens": 17280,
+        "cache_creation_input_tokens": 0
+      },
+      "runs": [
+        {
+          "ok": true,
+          "wall_s": 4.102,
+          "n_llm": 3,
+          "tool_names": [
+            "search_policies",
+            "get_orders",
+            "present_order_status",
+            "present_suggestions"
+          ],
+          "ttft_s": 1.4890655810013413,
+          "t_first_search_s": null,
+          "t_first_ui_s": 4.101881682872772,
+          "attr": {
+            "prefetch": 0.001406315015628934,
+            "llm": 3.838711413787678,
+            "overlap": 0.014064795104786754,
+            "tools": 0.0,
+            "other": 0.24781747604720294
+          },
+          "cpu": {
+            "search": 0.0,
+            "skill": 0.0,
+            "present": 0.0012219492346048355,
+            "other_tool": 0.012842845870181918
+          },
+          "tool_cpu_s": 0.014064795104786754,
+          "overlapped_tool_s": 0.014064795104786754,
+          "llm_spans_s": [
+            1.4237835118547082,
+            0.9953529101330787,
+            1.4336397869046777
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.07609622203744948
+            ],
+            [
+              "llm0",
+              1.4237835118547082
+            ],
+            [
+              "join1",
+              0.08323945803567767
+            ],
+            [
+              "llm1",
+              0.9953529101330787
+            ],
+            [
+              "join2",
+              0.08861648291349411
+            ],
+            [
+              "llm2",
+              1.4336397869046777
+            ],
+            [
+              "tail",
+              0.001271628076210618
+            ]
+          ],
+          "usage": {
+            "input_tokens": 1513,
+            "output_tokens": 278,
+            "cache_read_input_tokens": 17280,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 11
+        },
+        {
+          "ok": true,
+          "wall_s": 4.915,
+          "n_llm": 3,
+          "tool_names": [
+            "search_policies",
+            "get_orders",
+            "present_suggestions"
+          ],
+          "ttft_s": 1.543373815016821,
+          "t_first_search_s": null,
+          "t_first_ui_s": 4.915292188059539,
+          "attr": {
+            "prefetch": 0.0006459648720920086,
+            "llm": 4.656677410937846,
+            "overlap": 0.01430192799307406,
+            "tools": 0.0,
+            "other": 0.24337469623424113
+          },
+          "cpu": {
+            "search": 0.0,
+            "skill": 0.0,
+            "present": 0.0007408498786389828,
+            "other_tool": 0.013561078114435077
+          },
+          "tool_cpu_s": 0.01430192799307406,
+          "overlapped_tool_s": 0.01430192799307406,
+          "llm_spans_s": [
+            1.4843016499653459,
+            1.3381323260255158,
+            1.8485453629400581
+          ],
+          "round_stack": [
+            [
+              "prefetch",
+              0.06898927805013955
+            ],
+            [
+              "llm0",
+              1.4843016499653459
+            ],
+            [
+              "join1",
+              0.08005709107965231
+            ],
+            [
+              "llm1",
+              1.3381323260255158
+            ],
+            [
+              "join2",
+              0.09396096295677125
+            ],
+            [
+              "llm2",
+              1.8485453629400581
+            ],
+            [
+              "tail",
+              0.0010133290197700262
+            ]
+          ],
+          "usage": {
+            "input_tokens": 1508,
+            "output_tokens": 289,
+            "cache_read_input_tokens": 17280,
+            "cache_creation_input_tokens": 0
+          },
+          "n_events": 114
+        }
+      ],
+      "id": "returns",
+      "label": "Returns"
+    }
+  ]
+}

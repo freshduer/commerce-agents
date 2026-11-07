@@ -34,6 +34,9 @@ examples/*/data/.memory-*.json
 shopping-agent/managed-agents/storefront-mcp-server/.storefront_memory.json
 merchant-agent/managed-agents/merchant-mcp-server/.merchant_memory.json
 
+# Public eval dumps (WANDS CSVs). Reproduce with git clone https://github.com/wayfair/WANDS
+eval-scope/data/
+
 # OS / editor / local tooling
 .DS_Store
 .idea/
